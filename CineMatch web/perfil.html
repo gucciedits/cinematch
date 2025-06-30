@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch - Perfil</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body id="topo">
+
+
+    <header class="navbar">
+        <div class="navbar-container">
+
+            <div class="logo"></div>
+
+
+            <nav class="nav-menu">
+                <a href="home.html" class="nav-link">Início</a>
+                <a href="filmes.html" class="nav-link">Filmes</a>
+                <a href="series.html" class="nav-link">Séries</a>
+                <a href="perfil.html" class="nav-link">Perfil</a>
+               <a href="celeb.html" class="nav-link">Celebridades</a>
+                <a href="premi.html" class="nav-link">Premiações</a>
+                <button class="search-btn">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </nav>
+ <a href="index.html" class="login-btn">Sair</a>
+        </div>
+    </header>
+
+<section class="perfil-usuario">
+  <div class="perfil-container">
+
+
+    <div class="avatar-box">
+      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar do usuário" class="avatar">
+    </div>
+
+
+    <div class="info-box">
+      <h2>Olá, Usuário!</h2>
+      <p>
+    Com base nas suas interações recentes, percebemos que você tem um perfil bastante engajado em gêneros como ação, ficção científica e suspense psicológico.
+  Seus likes mostram uma preferência por enredos com ritmo acelerado, personagens complexos e mundos distópicos.
+  Ao mesmo tempo, sua rejeição a filmes de terror nos ajuda a refinar ainda mais suas recomendações — evitando sustos desnecessários 😱.
+  <br><br>
+  Utilizando filtragem colaborativa, estamos conectando você a usuários com gostos semelhantes para indicar filmes e séries que você ainda não assistiu, mas que têm grandes chances de te agradar.
+  Quanto mais você interagir (curtindo ou não curtindo os conteúdos), melhor conseguimos entender seu estilo e oferecer sugestões cada vez mais certeiras e personalizadas.
+</p>
+
+      <div class="gostos">
+        <h3>Seus gostos:</h3>
+        <ul>
+          <li>Ação</li>
+          <li>Ficção Científica</li>
+          <li>Suspense</li>
+        </ul>
+      </div>
+
+
+      <button class="editar-btn">Editar Perfil</button>
+    </div>
+
+  </div>
+
+
+<button class="abrir-roleta" onclick="abrirRoleta()">🍀 Girar Roleta</button>
+
+
+<div class="roleta-modal" id="roletaPopup">
+  <div class="modal-content">
+    <span class="fechar" onclick="fecharRoleta()">&times;</span>
+    <h2>Gire a roleta e descubra seu cupom!</h2>
+
+    <div class="roleta-wrapper">
+      <div class="seta"></div>
+      <div class="disco" id="disco">
+        <div class="opcao" style="--i:0;">Netflix</div>
+        <div class="opcao" style="--i:1;">Prime Video</div>
+        <div class="opcao" style="--i:2;">Disney+</div>
+        <div class="opcao" style="--i:3;">HBO Max</div>
+        <div class="opcao" style="--i:4;">Paramount+</div>
+        <div class="opcao" style="--i:5;">Apple TV+</div>
+      </div>
+    </div>
+
+    <button onclick="girarRoleta()">Girar</button>
+    <p id="resultadoRoleta"></p>
+  </div>
+</div>
+
+
+</section>
+
+
+<script src="script.js"></script>
+<a href="#topo" class="scroll-top">
+  <img src="img/logo.png" alt="Voltar ao topo">
+</a>
+
+</body>
+</html>
