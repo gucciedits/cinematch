@@ -1,0 +1,238 @@
+/* Estilos para filtros e busca */
+.filters-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(243, 167, 18, 0.2);
+}
+
+.filters-wrapper {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr) auto;
+  gap: 20px;
+  align-items: end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 45px 12px 15px;
+  border: 2px solid #333;
+  border-radius: 25px;
+  background-color: #0b090a;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #f3a712;
+  box-shadow: 0 0 0 3px rgba(243, 167, 18, 0.1);
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  color: #f3a712;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-select {
+  padding: 12px 15px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #0b090a;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #f3a712;
+  box-shadow: 0 0 0 3px rgba(243, 167, 18, 0.1);
+}
+
+.filter-select option {
+  background-color: #0b090a;
+  color: white;
+  padding: 10px;
+}
+
+.clear-filters-btn {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f3a712 0%, #ffbc1f 100%);
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+}
+
+.clear-filters-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(243, 167, 18, 0.4);
+}
+
+.filter-results {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: rgba(243, 167, 18, 0.1);
+  border-radius: 8px;
+  color: #f3a712;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(243, 167, 18, 0.3);
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  color: #666;
+}
+
+.no-results-content {
+  text-align: center;
+  padding: 40px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  border: 2px dashed #333;
+}
+
+.no-results-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #f3a712;
+}
+
+.no-results-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .filters-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .search-container {
+    grid-column: 1 / -1;
+  }
+  
+  .clear-filters-btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .filters-container {
+    padding: 20px 15px;
+  }
+  
+  .search-input {
+    font-size: 14px;
+    padding: 10px 40px 10px 12px;
+  }
+  
+  .filter-select {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .clear-filters-btn {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+/* Animações */
+@keyframes filterFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filters-container {
+  animation: filterFadeIn 0.5s ease-out;
+}
+
+.filter-select:hover,
+.search-input:hover {
+  border-color: rgba(243, 167, 18, 0.5);
+}
+
+/* Loading state */
+.filters-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.filters-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #f3a712;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

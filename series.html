@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch - Séries</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/filters.css">
+    <link rel="stylesheet" href="css/movie-cards.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body id="topo">
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo"></div>
+            <nav class="nav-menu">
+                <a href="home.html" class="nav-link">Início</a>
+                <a href="filmes.html" class="nav-link">Filmes</a>
+                <a href="series.html" class="nav-link">Séries</a>
+                <a href="perfil.html" class="nav-link">Perfil</a>
+                <a href="celeb.html" class="nav-link">Celebridades</a>
+                <a href="premi.html" class="nav-link">Premiações</a>
+                <button class="search-btn">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </nav>
+            <a href="index.html" class="login-btn">Sair</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="mini-menu">
+            <h3>Navegação Rápida</h3>
+            <ul>
+                <li><a href="#acao">Ação</a></li>
+                <li><a href="#drama">Drama</a></li>
+            </ul>
+        </aside>
+
+        <main class="grid-page">
+            <!-- Filtros para séries -->
+            <div class="filters-container">
+                <div class="filters-wrapper">
+                    <div class="search-container">
+                        <input type="text" id="series-search" placeholder="Buscar séries..." class="search-input">
+                        <div class="search-icon">🔍</div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="series-genre-filter">Gênero:</label>
+                        <select id="series-genre-filter" class="filter-select">
+                            <option value="all">Todos</option>
+                            <option value="ação">Ação</option>
+                            <option value="drama">Drama</option>
+                            <option value="ficção científica">Ficção Científica</option>
+                            <option value="comédia">Comédia</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="series-year-filter">Ano:</label>
+                        <select id="series-year-filter" class="filter-select">
+                            <option value="all">Todos</option>
+                            <option value="2020-2024">2020-2024</option>
+                            <option value="2010-2019">2010-2019</option>
+                            <option value="2000-2009">2000-2009</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="series-rating-filter">Avaliação:</label>
+                        <select id="series-rating-filter" class="filter-select">
+                            <option value="all">Todas</option>
+                            <option value="4.5">4.5+ estrelas</option>
+                            <option value="4.0">4.0+ estrelas</option>
+                            <option value="3.5">3.5+ estrelas</option>
+                        </select>
+                    </div>
+
+                    <button id="clear-series-filters" class="clear-filters-btn">Limpar Filtros</button>
+                </div>
+            </div>
+
+            <section id="acao">
+                <h2>Ação</h2>
+                <div class="grid-container">
+                    <div class="card" data-series-id="1">
+                        <div class="movie-poster" onclick="openSeriesModal(1)">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/113/656/posters/thumb/34f4a201fd.jpg.webp" alt="Legion">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Legion</h3>
+                                    <p>2017-2019 • Ação/Ficção Científica</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star half">★</span>
+                                        <span class="rating-number">4.3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/137/198/posters/thumb/4ebc6d892e.jpg.webp" alt="The Witcher">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>The Witcher</h3>
+                                    <p>2019-2023 • Ação/Fantasia</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star empty">☆</span>
+                                        <span class="rating-number">4.1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/139/960/posters/thumb/c5b8a81eba.jpg.webp" alt="The Mandalorian">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>The Mandalorian</h3>
+                                    <p>2019-2023 • Ação/Ficção Científica</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star half">★</span>
+                                        <span class="rating-number">4.6</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/031/159/posters/thumb/d3bf06ba55.jpg.webp" alt="Arrow">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Arrow</h3>
+                                    <p>2012-2020 • Ação/Drama</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star empty">☆</span>
+                                        <span class="rating-number">4.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/104/311/posters/thumb/af633add9b.jpg.webp" alt="Stranger Things">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Stranger Things</h3>
+                                    <p>2016-2022 • Ação/Ficção Científica</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star half">★</span>
+                                        <span class="rating-number">4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/208/240/posters/thumb/607485c9f0.jpg.webp" alt="House of the Dragon">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>House of the Dragon</h3>
+                                    <p>2022-2024 • Ação/Drama</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star empty">☆</span>
+                                        <span class="rating-number">4.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="drama">
+                <h2>Drama</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/170/997/posters/thumb/21097bc935.jpg.webp" alt="The Crown">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>The Crown</h3>
+                                    <p>2016-2023 • Drama/História</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star half">★</span>
+                                        <span class="rating-number">4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/004/562/posters/thumb/43670fefe3.jpg.webp" alt="Breaking Bad">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Breaking Bad</h3>
+                                    <p>2008-2013 • Drama/Crime</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="rating-number">4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/060/896/posters/thumb/79881af83f.jpg.webp" alt="Better Call Saul">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Better Call Saul</h3>
+                                    <p>2015-2022 • Drama/Crime</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star half">★</span>
+                                        <span class="rating-number">4.6</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/021/661/posters/thumb/c78ae1c651.jpg.webp" alt="Game of Thrones">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Game of Thrones</h3>
+                                    <p>2011-2019 • Drama/Fantasia</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star empty">☆</span>
+                                        <span class="rating-number">4.1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/046/604/posters/thumb/4b5b1cb376.jpg.webp" alt="The Walking Dead">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>The Walking Dead</h3>
+                                    <p>2010-2022 • Drama/Horror</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star empty">☆</span>
+                                        <span class="rating-number">3.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="movie-poster">
+                            <img src="https://walter-r2.trakt.tv/images/shows/000/165/792/posters/thumb/27584e2691.jpg.webp" alt="Succession">
+                            <div class="movie-overlay">
+                                <div class="movie-info">
+                                    <h3>Succession</h3>
+                                    <p>2018-2023 • Drama/Comédia</p>
+                                    <div class="rating-display">
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star full">★</span>
+                                        <span class="star half">★</span>
+                                        <span class="rating-number">4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="rating-stars">
+                                <span class="interactive-star" data-rating="1">☆</span>
+                                <span class="interactive-star" data-rating="2">☆</span>
+                                <span class="interactive-star" data-rating="3">☆</span>
+                                <span class="interactive-star" data-rating="4">☆</span>
+                                <span class="interactive-star" data-rating="5">☆</span>
+                            </div>
+                            <div class="likes">
+                                <button class="like">👍</button>
+                                <button class="dislike">👎</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Popup para feedback -->
+    <div class="popup hidden" id="popup">
+        <div class="popup-content">
+            <span class="close">✖</span>
+            <p id="popup-text"></p>
+        </div>
+    </div>
+
+    <!-- Modal para detalhes da série -->
+    <div class="movie-modal hidden" id="series-modal">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-body">
+                    <div class="modal-poster">
+                        <img id="series-modal-image" src="" alt="">
+                    </div>
+                    <div class="modal-info">
+                        <h2 id="series-modal-title"></h2>
+                        <div class="modal-meta">
+                            <span id="series-modal-years"></span>
+                            <span id="series-modal-seasons"></span>
+                            <span id="series-modal-genre"></span>
+                        </div>
+                        <div class="modal-rating">
+                            <div class="rating-stars-display" id="series-modal-rating-stars"></div>
+                            <span id="series-modal-rating-number"></span>
+                        </div>
+                        <div class="streaming-platforms" id="series-modal-streaming"></div>
+                        <p id="series-modal-description"></p>
+                        
+                        <div class="modal-details">
+                            <div class="detail-row">
+                                <strong>Criado por:</strong>
+                                <span id="series-modal-creator"></span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Elenco:</strong>
+                                <span id="series-modal-cast"></span>
+                            </div>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button class="add-to-list-btn">+ Minha Lista</button>
+                            <div class="modal-rating-section">
+                                <span>Sua avaliação:</span>
+                                <div class="user-rating-stars" id="series-modal-user-rating"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        // Função para abrir modal da série Legion
+        function openSeriesModal(seriesId) {
+            const modal = document.getElementById('series-modal');
+            
+            // Dados da série Legion (exemplo)
+            const seriesData = {
+                1: {
+                    title: "Legion",
+                    years: "2017-2019",
+                    seasons: "3 Temporadas",
+                    genre: "Ação, Ficção Científica",
+                    rating: 4.3,
+                    image: "https://walter-r2.trakt.tv/images/shows/000/113/656/posters/thumb/34f4a201fd.jpg.webp",
+                    description: "David Haller é um jovem que foi diagnosticado com esquizofrenia quando era criança e desde então viveu em instituições psiquiátricas. Depois de um encontro estranho com um paciente, ele descobre que as vozes e visões que ouve e vê podem ser reais.",
+                    creator: "Noah Hawley",
+                    cast: ["Dan Stevens", "Rachel Keller", "Aubrey Plaza", "Jean Smart"],
+                    streaming: ["Disney+", "Star+"]
+                }
+            };
+            
+            const series = seriesData[seriesId];
+            if (!series) return;
+            
+            // Preencher dados do modal
+            document.getElementById('series-modal-title').textContent = series.title;
+            document.getElementById('series-modal-years').textContent = series.years;
+            document.getElementById('series-modal-seasons').textContent = series.seasons;
+            document.getElementById('series-modal-genre').textContent = series.genre;
+            document.getElementById('series-modal-description').textContent = series.description;
+            document.getElementById('series-modal-creator').textContent = series.creator;
+            document.getElementById('series-modal-cast').textContent = series.cast.join(', ');
+            document.getElementById('series-modal-image').src = series.image;
+            
+            // Rating
+            const stars = generateStars(series.rating);
+            document.getElementById('series-modal-rating-stars').innerHTML = stars;
+            document.getElementById('series-modal-rating-number').textContent = `${series.rating}/5`;
+            
+            // Streaming
+            const streamingContainer = document.getElementById('series-modal-streaming');
+            streamingContainer.innerHTML = series.streaming.map(platform => 
+                `<span class="streaming-badge">${platform}</span>`
+            ).join('');
+            
+            // Mostrar modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+        
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            
+            let stars = '';
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<span class="star full">★</span>';
+            }
+            if (hasHalfStar) {
+                stars += '<span class="star half">★</span>';
+            }
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<span class="star empty">☆</span>';
+            }
+            
+            return stars;
+        }
+        
+        // Eventos do modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('series-modal');
+            const closeBtn = modal.querySelector('.modal-close');
+            const overlay = modal.querySelector('.modal-overlay');
+            
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+            
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            });
+            
+            // Eventos de like/dislike e rating
+            document.querySelectorAll('.like, .dislike').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isLike = btn.classList.contains('like');
+                    const message = isLike 
+                        ? 'Você curtiu! Recomendaremos séries similares.' 
+                        : 'Você não gostou! Não recomendaremos similares.';
+                    
+                    const popup = document.getElementById('popup');
+                    document.getElementById('popup-text').textContent = message;
+                    popup.classList.remove('hidden');
+                    
+                    setTimeout(() => {
+                        popup.classList.add('hidden');
+                    }, 3000);
+                });
+            });
+            
+            // Eventos de rating por estrelas
+            document.querySelectorAll('.interactive-star').forEach(star => {
+                star.addEventListener('click', (e) => {
+                    const rating = parseInt(e.target.dataset.rating);
+                    const message = `Você avaliou esta série com ${rating} estrela${rating > 1 ? 's' : ''}!`;
+                    
+                    const popup = document.getElementById('popup');
+                    document.getElementById('popup-text').textContent = message;
+                    popup.classList.remove('hidden');
+                    
+                    setTimeout(() => {
+                        popup.classList.add('hidden');
+                    }, 3000);
+                });
+                
+                star.addEventListener('mouseenter', (e) => {
+                    const rating = parseInt(e.target.dataset.rating);
+                    const card = e.target.closest('.card');
+                    const stars = card.querySelectorAll('.interactive-star');
+                    
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.textContent = '★';
+                            s.style.color = '#f3a712';
+                        } else {
+                            s.textContent = '☆';
+                            s.style.color = '#666';
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseleave', (e) => {
+                    const card = e.target.closest('.card');
+                    const stars = card.querySelectorAll('.interactive-star');
+                    
+                    stars.forEach(s => {
+                        s.textContent = '☆';
+                        s.style.color = '#666';
+                    });
+                });
+            });
+            
+            // Popup close events
+            const popup = document.getElementById('popup');
+            const closePopupBtn = popup.querySelector('.close');
+            
+            closePopupBtn.addEventListener('click', () => {
+                popup.classList.add('hidden');
+            });
+            
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+    <a href="#topo" class="scroll-top">
+        <img src="img/logo.png" alt="Voltar ao topo">
+    </a>
+
+</body>
+</html>

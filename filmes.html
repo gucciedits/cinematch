@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch - Filmes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/filters.css">
+    <link rel="stylesheet" href="css/movie-cards.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body id="topo">
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo"></div>
+            <nav class="nav-menu">
+                <a href="home.html" class="nav-link">Início</a>
+                <a href="filmes.html" class="nav-link">Filmes</a>
+                <a href="series.html" class="nav-link">Séries</a>
+                <a href="perfil.html" class="nav-link">Perfil</a>
+                <a href="celeb.html" class="nav-link">Celebridades</a>
+                <a href="premi.html" class="nav-link">Premiações</a>
+                <button class="search-btn">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </nav>
+            <a href="index.html" class="login-btn">Sair</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="mini-menu">
+            <h3>Navegação Rápida</h3>
+            <ul>
+                <li><a href="#acao">Ação</a></li>
+                <li><a href="#drama">Drama</a></li>
+                <li><a href="#comedia">Comédia</a></li>
+                <li><a href="#sci-fi">Sci-Fi</a></li>
+                <li><a href="#terror">Terror</a></li>
+            </ul>
+        </aside>
+
+        <main class="grid-page">
+            <!-- Os filtros e filmes serão inseridos aqui dinamicamente -->
+        </main>
+    </div>
+
+    <!-- Popup para feedback -->
+    <div class="popup hidden" id="popup">
+        <div class="popup-content">
+            <span class="close">✖</span>
+            <p id="popup-text"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/movies-data.js"></script>
+    <script src="js/movie-filters.js"></script>
+    <script src="js/movie-modal.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Inicializar funcionalidades quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar filtros de filmes
+            window.movieFilters = new MovieFilters();
+            
+            // Inicializar modal
+            window.movieModal = new MovieModal();
+            
+            // Configurar eventos do popup
+            const popup = document.getElementById('popup');
+            const closeBtn = popup.querySelector('.close');
+            
+            closeBtn.addEventListener('click', () => {
+                popup.classList.add('hidden');
+            });
+            
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+    <a href="#topo" class="scroll-top">
+        <img src="img/logo.png" alt="Voltar ao topo">
+    </a>
+
+</body>
+</html>
