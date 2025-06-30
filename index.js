@@ -16,10 +16,6 @@ app.get('/filmes', (req, res) => {
   res.sendFile(path.join(__dirname, 'filmes.html'));
 });
 
-app.get('/perfil', (req, res) => {
-  res.sendFile(path.join(__dirname, 'perfil.html'));
-});
-
 // Iniciar o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
